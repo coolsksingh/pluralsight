@@ -1,0 +1,48 @@
+#calculator {
+    width: 100%;
+    height: 100%;
+}
+
+#base_layer {
+    width: 400px;
+    height: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#display, #error_message {
+    width: 342px;
+    margin: 0;
+}
+
+#display {
+    height: 26px;
+    padding: 3px 5px 0 5px;
+    border-bottom: none;
+    resize: none;
+}
+
+#error_message {
+    height: 18px;
+    padding: 0 5px 3px 5px;
+    border-top: none;
+}
+#equal :only-child {width: 115px;}
+
+ul {
+    padding: 0;
+    margin: 4px;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+}
+
+li > input {
+    width: 55px;
+
+    padding: 5px;
+}
+
+ul :nth-child(4) :only-child {color: red; }

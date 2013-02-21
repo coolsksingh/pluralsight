@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="calculator">
+    <meta name="keywords" content="calculator">
+    <meta name="author" content="kapa4ka">
+    <meta name="publisher-email" content="kapa4ka@gmail.com">
+    <title>Calculator on JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="./calc.css">
+    <script type="text/javascript" src="./calculation.js"></script>
+
+</head>
+
+<body>
+
+<div id="calculator">
+    <div id="base_layer">
+        <form name="js_calc" action="">
+            <textarea cols="" rows="" id="display" wrap="off" onchange="enter()"></textarea>
+            <input id="error_message" type="text" onkeydown="return false;">
+            <ul>
+                <li><input type="button" value="7" onclick="press(this.value)"></li>
+                <li><input type="button" value="8" onclick="press(this.value)"></li>
+                <li><input type="button" value="9" onclick="press(this.value)"></li>
+                <li><input type="button" value="&divide;" onclick="press(this.value)"></li>
+                <li><input type="button" value="back" onclick="back()"></li>
+                <li><input type="button" value="clear" onclick="clear_all()"></li>
+            </ul>
+            <ul>
+                <li><input name="but" type="button" value="4" onclick="press(this.value)"></li>
+                <li><input type="button" value="5" onclick="press(this.value)"></li>
+                <li><input type="button" value="6" onclick="press(this.value)"></li>
+                <li><input type="button" value="&times;" onclick="press(this.value)"></li>
+                <li><input type="button" value="(" onclick="press(this.value)"></li>
+                <li><input type="button" value=")" onclick="press(this.value)"></li>
+            </ul>
+            <ul>
+                <li><input type="button" value="1" onclick="press(this.value)"></li>
+                <li><input type="button" value="2" onclick="press(this.value)"></li>
+                <li><input type="button" value="3" onclick="press(this.value)"></li>
+                <li><input type="button" value="-" onclick="press(this.value)"></li>
+                <li><input type="button" value="x&sup2;" onclick="press('&sup2;')"></li>
+                <li><input type="button" value="&#8730;" onclick="press(this.value)"></li>
+            </ul>
+            <ul>
+                <li><input type="button" value="0" onclick="press(this.value)"></li>
+                <li><input type="button" value="." onclick="press(this.value)"></li>
+                <li><input type="button" value="%" onclick="press(this.value)"></li>
+                <li><input type="button" value="+" onclick="press(this.value)"></li>
+                <li id="equal"><input type="button" value="=" onclick="calculator(rpn())"></li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+
+</body>
+
+</html>
