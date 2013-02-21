@@ -1,0 +1,28 @@
+h2 {
+    background: lightgrey;
+}
+
+span {
+    color: red;
+    font-family: sherif;
+}
+
+p {
+    text-indent: 2em;
+    font-size: 14pt;
+    font-family: Vernada;
+}
+
+pre {
+    font-size: 14pt;
+    font-family: Vernada;
+}
+
+div {
+    text-align: justify;
+}
+
+q {
+    font-style: italic;
+    color: dimgrey;
+}
