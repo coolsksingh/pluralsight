@@ -1,0 +1,380 @@
+html, body, ul, li, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #4a4a4a url(./images/bg.png);
+    font-family: Vernada, sans-serif;
+    font-size: 13px;
+}
+
+body, .head_bottom {
+    background-repeat: repeat-x;
+}
+
+a:focus {
+    outline: none;
+}
+
+.head_bottom {
+    height: 16px;
+    width: 932px;
+    background-image: url(./images/head_bottom.png);
+}
+
+.header, .head_title, .head_base, .head_side, .head_bottom, .footer {
+    margin: 0 auto;
+}
+
+.header {
+    position: relative;
+    height: 374px;
+    width: 940px;
+}
+
+.head_title {
+    height: 65px;
+    width: 884px;
+    border: 1px solid #3b3b31;
+    border-bottom: 2px solid #37402f;
+    background-color: #3d3c29; /* fallback color if gradients are not supported */
+    background-image: -webkit-linear-gradient(top, #121206 0%, #3d3a2b 10%, #403d2c 50%, #3b3827 70%, #1f110a 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -moz-linear-gradient(top, #121206 0%, #3d3a2b 10%, #403d2c 50%, #3b3827 70%, #1f110a 100%); /* For old Fx (3.6 to 15) */
+    background-image: -ms-linear-gradient(top, #121206 0%, #3d3a2b 10%, #403d2c 50%, #3b3827 70%, #1f110a 100%); /* For pre-releases of IE 10*/
+    background-image: -o-linear-gradient(top, #121206 0%, #3d3a2b 10%, #403d2c 50%, #3b3827 70%, #1f110a 100%); /* For old Opera (11.1 to 12.0) */
+    background-image: linear-gradient(to bottom, #121206 0%, #3d3a2b 10%, #403d2c 50%, #3b3827 70%, #1f110a 100%); /* Standard syntax W3C; must be last */
+}
+
+.head_title img {
+    margin: 15px;
+}
+
+ /* MENU */
+.head_title ul {
+    float: right;
+    margin-right: 15px;
+    margin-top: 22px;
+}
+.head_title li {
+    float: left;
+    list-style-type: none;
+    font-weight: bold;
+    display: inline;
+}
+.head_title li a {
+    padding: 8px;
+    margin-left: 10px;
+    background: #2e2c1d;
+    border-radius: 5px;
+    border: 1px solid #17140d;
+    border-right-color: #2b291b;
+    border-bottom-color: #2b291b;
+}
+/* unvisited link */
+.head_title a:link {
+    color: #666450;
+    text-decoration: none;
+}
+/* visited link */
+.head_title a:visited {
+    color: #666450;
+    text-decoration: none;
+}
+/* mouse over link */
+.head_title a:hover {
+    color: #a4cc4e;
+    text-decoration: none;
+}
+/* selected link */
+.head_title a:active {
+    color: #121206;
+    text-decoration: none;
+}
+/* .current - describes an item menu that active by default */
+.current a:link, .current a:visited, .current a:hover, .current a:active {
+    padding: 8px;
+    border: none;
+    color: #121206;
+    text-decoration: none;
+    background-color: #a4cc4e;
+    background-image: -webkit-linear-gradient(top, #c2db46 0%, #6bab4b 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -moz-linear-gradient(top, #c2db46 0%, #6bab4b 100%); /* For old Fx (3.6 to 15) */
+    background-image: -ms-linear-gradient(top, #c2db46 0%, #6bab4b 100%); /* For pre-releases of IE 10*/
+    background-image: -o-linear-gradient(top, #c2db46 0%, #6bab4b 100%); /* For old Opera (11.1 to 12.0) */
+    background-image: linear-gradient(to bottom, #c2db46 0%, #6bab4b 100%); /* Standard syntax W3C; must be last */
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 10px solid #6bab4b;
+    border-left: 10px solid transparent;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
+.head_side {
+    height: 290px;
+    width: 940px;
+    background-image: url(./images/corners.png);
+}
+
+.head_base {
+    position: absolute;
+    right: 30px;
+    top: 68px;
+    height: 290px;
+    width: 880px;
+    background-image: url(./images/head_base.png);
+}
+.head_desk {
+    position: absolute;
+    color: white;
+    left: 400px;
+    top: 185px;
+    height: 125px;
+    width: 460px;
+    padding: 10px;
+}
+.head_desk {
+    text-shadow: white 0 0 1px;
+    color: transparent;
+}
+.head_desk h1 {
+    font-size: 2.5em;
+}
+
+.head_desk ul {
+    float: left;
+    list-style: none;
+    font: 1.2em bold;
+    width: 200px;
+}
+.head_desk li {
+    padding: 5px 0;
+}
+.head_desk span {
+    color: white;
+    font-weight: bold;
+}
+.only {
+    position: absolute;
+    right: 10px;
+    bottom: 25px;
+}
+
+.content {
+    width: 886px;
+    margin: 16px auto;
+}
+.left_col {
+    float: left;
+    width: 590px;
+}
+.right_col {
+    margin-left: 606px;
+    width: 280px;
+}
+/* unvisited, visited, mouse over, selected links */
+.right_col li a:link, .right_col li a:visited, .right_col li a:hover, .right_col li a:active {
+    color: #9bbda2;
+    text-decoration: none;
+}
+.right_col li a:hover {
+    color:white;
+}
+
+.border_out {
+    margin-bottom: 16px;
+    border: 1px solid #70521e;
+    background-color: #a68137;
+}
+
+.border_in {
+    border: 1px solid #ab9259;
+    background-color: #152617;
+    margin: 1px 20px;
+}
+
+.enter {
+    background-color: #2f4032;
+    color: #9bbda2;
+    margin: 4px;
+    padding: 15px;
+    min-height: 100px;
+}
+
+.enter h2 {
+    margin: 5px 0 10px 0;
+    padding: 5px 0;
+}
+
+h2, .right_col li {
+    border-bottom: 1px dotted #9bbda2;
+}
+
+.right_col li {
+    list-style-type: none;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.right_col li:last-child {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.right_col li span {
+    float: right;
+}
+.right_col ul {
+    margin: 16px 0 0 0;
+}
+
+.cake {
+    min-height: 175px;
+}
+.cake img {
+    float: right;
+    margin-top: 5px;
+}
+
+span {
+    color: #a4cc4e;
+    font-weight: bold;
+}
+
+.interier {
+    margin-top: 16px;
+    text-align: center;
+    border-radius: 5px;
+    border: 5px solid #233325;
+}
+
+.small img{
+    float: left;
+    margin: 5px 15px 5px 0;
+}
+
+/* gradient of border */
+.border_gr {
+    height: 15px;
+    background-color: #a68137; /* fallback color if gradients are not supported */
+    background-image: -webkit-linear-gradient(left, #a68137 0, #f0d9af 50%, #a68137 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -moz-linear-gradient(left, #a68137 0, #f0d9af 50%, #a68137 100%); /* For old Fx (3.6 to 15) */
+    background-image: -ms-linear-gradient(left, #a68137 0, #f0d9af 50%, #a68137 100%); /* For pre-releases of IE 10*/
+    background-image: -o-linear-gradient(left, #a68137 0, #f0d9af 50%, #a68137 100%); /* For old Opera (11.1 to 12.0) */
+    background-image: linear-gradient(to right, #a68137 0, #f0d9af 50%, #a68137 100%); /* Standard syntax W3C; must be last */
+}
+.gr_top {
+    margin: 3px 3px 2px 3px;
+}
+.gr_bottom {
+    margin: 2px 3px 3px 3px;
+}
+
+.footer {
+    clear: both;
+    width: 866px;
+    background: #333333;
+    color: #8a8a8a;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    float: right;
+}
+
+.footer li {
+    list-style-type: none;
+    display: inline;
+    border-right: 1px solid #8a8a8a;
+    padding-right: 5px;
+}
+
+.footer li:last-child {
+    border: none;
+    padding: 0;
+}
+
+/* unvisited link */
+.footer a:link {
+    color: #8a8a8a;
+    text-decoration: none;
+}
+/* visited link */
+.footer a:visited {
+    color: #8a8a8a;
+    text-decoration: none;
+}
+/* mouse over link */
+.footer a:hover {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+/* selected link */
+.footer a:active {
+    color: #e0e0e0;
+}
+
+.link {
+    overflow: hidden;
+    width: 478px;
+    padding: 5px 15px;
+    margin-top: 16px;
+}
+.link ul {
+    float: left;
+    width: 120px;
+    margin-left: 25px;
+    margin-right: 12px;
+    list-style-image: url(./images/marker.png);
+}
+.link li {margin: 3px 0;}
+.link a {color: #9bbda2;}
+.link a:hover {text-decoration: none;}
+
+button {
+    height: 28px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fce958;
+    background-image: -webkit-linear-gradient(top, #fce958 0%, #b5942f 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -moz-linear-gradient(top, #fce958 0%, #b5942f 100%); /* For old Fx (3.6 to 15) */
+    background-image: -ms-linear-gradient(top, #fce958 0%, #b5942f 100%); /* For pre-releases of IE 10*/
+    background-image: -o-linear-gradient(top, #fce958 0%, #b5942f 100%); /* For old Opera (11.1 to 12.0) */
+    background-image: linear-gradient(to bottom, #fce958 0%, #b5942f 100%); /* Standard syntax W3C; must be last */
+    color: #4a3815;
+    font-weight: bold;
+    }
+.left_col form {width: 400px; height: 326px; }
+form, .cake button {position: relative; }
+form button { position: absolute;}
+.cake button {
+    bottom: 1px;
+}
+form button {right: 0; bottom: 0;}
+form span {
+    color: darkorange;
+}
+input {
+    width:300px;
+    height:25px;
+}
+input, textarea {
+    background-color: #152617;
+    border: none;
+}
+textarea {
+    resize: none;
+    width: 400px;
+    height: 150px;
+}
+h5 {
+    margin-top: 16px;
+    margin-bottom: 2px;
+}
+p {margin-bottom: 0;}
+
+.right_col input {width:198px;}
+.right_col form {height: 78px;}
