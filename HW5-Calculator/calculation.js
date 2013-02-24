@@ -1,17 +1,16 @@
 var input = [];
 // operators with priority
-var operators =
-{
-    '(':1,
-    ')':1,
-    '√':2,
-    '²':2,
-    '%':3,
-    '|':3,
-    '×':4,
-    '÷':4,
-    '+':5,
-    '-':5
+var operators = {
+    '(': 1,
+    ')': 1,
+    '√': 2,
+    '²': 2,
+    '%': 3,
+    '|': 3,
+    '×': 4,
+    '÷': 4,
+    '+': 5,
+    '-': 5
 };
 
 function enter() {
@@ -39,52 +38,55 @@ function clear_all() {
     document.getElementById('error_message').value = '';
 }
 
-function complex(re, im) {
+function complex(re,im) {
     this.re = re;
     this.im = im;
-    return [this.re,this.im];
+    return {
+        "re": this.re,
+        "im": this.im
+    };
 }
 
 function add(A,B) {
-    return complex(A[0] + B[0], A[1] + B[1]);
+    return complex(A.re + B.re, A.im + B.im);
 }
 
 function subt(A,B) {
-    return complex(A[0] - B[0], A[1] - B[1]);
+    return complex(A.re - B.re, A.im - B.im);
 }
 
 function mult(A,B) {
-    var im = A[0] * B[0] - A[1] * B[1];
-    var re = A[1] * B[0] + A[0] * B[1];
+    var re = A.re * B.re - A.im * B.im;
+    var im = A.im * B.re + A.re * B.im;
     return complex(re,im);
 }
 
 function div(A,B) {
     var denominator = Math.pow(B.re,2) + Math.pow(B.im,2);
-    var re = (A[0] * B[0] + A[1] * B[1]) / denominator;
-    var im = (A[1] * B[0] - A[0] * B[1]) / denominator;
+    var re = (A.re * B.re + A.im * B.im) / denominator;
+    var im = (A.im * B.re - A.re * B.im) / denominator;
     return complex(re,im);
 }
 
 function pct(A) {
-    return complex(A[0] * 0.01, A[1] * 0.01);
+    return complex(A.re * 0.01, A.im * 0.01);
 }
 
 function neg(A) {
-    return complex(-A[0],-A[1]);
+    return complex(-A.re,-A.im);
 }
 
 function pow2(A) {
-    var r = Math.sqrt(Math.pow(A[0],2) + Math.pow(A[1],2)); // r is complex number modulus
-    var re = (2 * Math.pow(A[0],2) - Math.pow(r,2));
-    var im = 2 * A[0] * A[1];
+    var r = Math.sqrt(Math.pow(A.re,2) + Math.pow(A.im,2)); // r is complex number modulus
+    var re = (2 * Math.pow(A.re,2) - Math.pow(r,2));
+    var im = 2 * A.re * A.im;
     return complex(re,im);
 }
 
 function sqrt(A) {
-    var r = Math.sqrt(Math.pow(A[0],2) + Math.pow(A[1],2)); // r is complex number modulus
-    var re = Math.sqrt((r + A[0]) / 2);
-    var im = Math.sqrt((r - A[0]) / 2);
+    var r = Math.sqrt(Math.pow(A.re,2) + Math.pow(A.im,2)); // r is complex number modulus
+    var re = Math.sqrt((r + A.re) / 2);
+    var im = Math.sqrt((r - A.re) / 2);
     return complex(re,im);
 }
 
@@ -135,7 +137,7 @@ function rpn() {
     var elem;
     for (var k = 0; k < output.length; k++) {
         elem = output[k];
-        if (elem instanceof Array) {
+        if (elem instanceof Object) {
             rpn.push(elem);
         } else {
             switch (elem) {
@@ -152,11 +154,11 @@ function rpn() {
                     }
                     break;
                 default:
-                    if ((elem == "²" || elem == "%") && (output[k+1] instanceof Array)) {
+                    if ((elem == "²" || elem == "%") && (output[k+1] instanceof Object)) {
                         rpn.push(NaN);
                         break;
                     }
-                    if (elem == "√" && (output[k-1] instanceof Array)) {
+                    if (elem == "√" && (output[k-1] instanceof Object)) {
                         rpn.push(NaN);
                     } else {
                         var l = stack.length;
@@ -193,7 +195,7 @@ function calculator(rpn) {
         var len_start = rpn.length;
         var len_end;
         for (var i = 0; i < rpn.length; i++) {
-            if (rpn[i] instanceof Array) {
+            if (rpn[i] instanceof Object) {
                 if (rpn[i+1] in operators) {
                     switch (rpn[i+1]) {
                         case "√":
@@ -235,19 +237,19 @@ function calculator(rpn) {
         if (len_end == 1) {
             input = [];
             var z = rpn.pop();
-            if (z[0] === 0) {
-                if (z[1] === 0) {
+            if (z.re === 0) {
+                if (z.im === 0) {
                     document.getElementById('display').value = "0";
                 } else {
-                    document.getElementById('display').value = String(z[1]) + "i";
+                    document.getElementById('display').value = String(z.im) + "i";
                 }
             } else {
-                if (z[1] === 0) {
-                    document.getElementById('display').value = String(z[0]);
-                } else if (z[1] > 0) {
-                    document.getElementById('display').value = String(z[0]) + "+" + String(z[1]) + "i";
+                if (z.im === 0) {
+                    document.getElementById('display').value = String(z.re);
+                } else if (z.im > 0) {
+                    document.getElementById('display').value = String(z.re) + "+" + String(z.im) + "i";
                 } else {
-                    document.getElementById('display').value = String(z[0]) + String(z[1]) + "i";
+                    document.getElementById('display').value = String(z.re) + String(z.im) + "i";
                 }
             }
             input.push(document.getElementById('display').value);
