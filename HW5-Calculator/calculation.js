@@ -39,11 +39,9 @@ function clear_all() {
 }
 
 function complex(re,im) {
-    this.re = re;
-    this.im = im;
     return {
-        "re": this.re,
-        "im": this.im
+        "re": re,
+        "im": im
     };
 }
 
@@ -94,18 +92,14 @@ function rpn() {
     var output = [];
     var rpn = [];
     var stack = [];
-    var item = ''; // It is piece of expression. It can be operator or operand.
+    var item = ''; // It is a part of expression. It can be an operator or an operand.
     var regexp = /[0123456789\.i]/;
 
     // Create array output, so it looks like [523.3,'-',3] etc.
     for (var i = 0; i < input.length; i++) {
         if (regexp.test(input[i])) {
             if (input[i] == "i") {
-                if (item.length == 0) {
-                    output.push(complex(0,0));
-                } else {
-                    output.push(complex(0,Number(item)));
-                }
+                (item.length == 0) ? output.push(complex(0,0)) : output.push(complex(0,Number(item)));
                 item = '';
             } else {
                 item += input[i];
@@ -179,22 +173,21 @@ function rpn() {
             }
         }
     }
-
     while (stack.length != 0) {
         rpn.push(stack.pop());
     }
-
     return rpn;
-
 }
 
 function calculator(rpn) {
-    if (rpn.length <= 1) {
-        document.getElementById('error_message').value = "Enter expression";
+    var display = document.getElementById('display');
+    var error = document.getElementById('error_message');
+    var len_start = rpn.length;
+    var len_end;
+    if (len_start <= 1) {
+        error.value = "Enter expression";
     } else {
-        var len_start = rpn.length;
-        var len_end;
-        for (var i = 0; i < rpn.length; i++) {
+        for (var i = 0; i < len_start; i++) {
             if (rpn[i] instanceof Object) {
                 if (rpn[i+1] in operators) {
                     switch (rpn[i+1]) {
@@ -238,25 +231,19 @@ function calculator(rpn) {
             input = [];
             var z = rpn.pop();
             if (z.re === 0) {
-                if (z.im === 0) {
-                    document.getElementById('display').value = "0";
-                } else {
-                    document.getElementById('display').value = String(z.im) + "i";
-                }
+               (z.im === 0) ? (display.value = 0) : (display.value = z.im + "i");
             } else {
                 if (z.im === 0) {
-                    document.getElementById('display').value = String(z.re);
+                    display.value = z.re;
                 } else if (z.im > 0) {
-                    document.getElementById('display').value = String(z.re) + "+" + String(z.im) + "i";
+                    display.value = z.re + "+" + z.im + "i";
                 } else {
-                    document.getElementById('display').value = String(z.re) + String(z.im) + "i";
+                    display.value = z.re + "" + z.im + "i";
                 }
             }
-            input.push(document.getElementById('display').value);
+            input.push(display.value);
         } else {
-            if (len_start == len_end) {
-                document.getElementById('error_message').value = "Incorrect expression";
-            } else {calculator(rpn);}
+            (len_start == len_end) ? (error.value = "Incorrect expression") : (calculator(rpn));
         }
     }
 }
