@@ -1,0 +1,84 @@
+.left, .center, .right, #header, #menu, #content, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 14px Vernada, Arial, sans-serif;
+}
+.fon {
+    min-width: 1280px;
+    background: url(../images/paws_up.png) repeat-y, url(../images/paws_down.png) repeat-y top right;
+
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+.left, .right {
+    width: 100px;
+}
+
+.center {
+    margin: 0 130px;
+}
+
+#menu, #photos, #loading {
+    text-align: center;
+}
+
+#menu li {
+    list-style-type: none;
+    display: inline;
+}
+
+.current img {
+    opacity: 1 !important;
+}
+#menu img {
+    opacity: 0.3;
+}
+#menu img:hover {
+    opacity: 0.75;
+}
+
+a {
+    outline: none;
+    color: cadetblue;
+}
+
+img {
+    padding: 5px;
+}
+
+.official_page li{
+    list-style-type: none;
+    font-style: italic;
+}
+
+iframe {
+    width: 500px;
+    height: 400px;
+}
+
+p {
+    padding-left: 5px;
+}
+
+#content {
+    min-height: 1000px;
+}
+
+#footer p {
+    color: white;
+    background-color: black;
+    margin-bottom: 5px;
+}
+
+h1 {
+    margin: 15px 0;
+}

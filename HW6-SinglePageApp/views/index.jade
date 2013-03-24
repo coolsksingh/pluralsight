@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div.fon
+      div.left
+      div.right
+      div.center
+          div#header
+              h1= title
+              ul#menu
+                li: a(href='/maru'): img(src='images/menu/maru.jpg', alt='Maru', title='Maru the Box King')
+                li: a(href='/tard'): img(src='images/menu/tard.jpg', alt='Tard', title='Tard the Grumpy Cat')
+                li: a(href='/colonel'): img(src='images/menu/colonel.jpg', alt='Colonel Meow', title='Colonel Meow the Angriest Cat')
+                li: a(href='/snoopy'): img(src='images/menu/snoopy.jpg', alt='Snoopy', title='Snoopy the Cutest Cat')
+                li: a(href='/venus'): img(src='images/menu/venus.jpg', alt='Venus', title='Venus the Two-Faced Cat')
+                li: a(href='/simon'): img(src='images/menu/simon.jpg', alt="Simon's cat", title="Simon's Cat")
+              hr
+          div#content
+            p Apart from Garfield and Cheshire, how many famous cats do you know? Unlike Hollywood stars who have a great many ways to promote themselves, cats’ resources are rather limited and come down to online promotion  . Some of them remain popular for a long time, others disappear the next day. Let’s have a look at still popular and new Internet cat-stars.
+          div#footer
+            p &copy 2013 by kapa4ka
+
+  script(src='javascripts/content.js')
